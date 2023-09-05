@@ -1,0 +1,15 @@
+[package]
+name = "queue"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+axum = { version = "0.6.20", features = ["tokio"] }
+time = { version = "0.3.28", features = ["formatting"] }
+tokio = { version = "1.32.0", features = ["rt-multi-thread", "sync", "macros"] }
+parking_lot = { version = "0.12.1", features = ["hardware-lock-elision"] }
+
+[profile.release]
+codegen-units = 1
+lto = true
+panic = "abort"
